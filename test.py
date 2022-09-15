@@ -85,48 +85,57 @@
 # os.chdir(r"c:\drivers")
 # print(os.getcwd())
 
-path = r"c:\pytest_basic"
-with open(path+"\\myfile2.txt", "w", encoding='ANSI') as f:
-    text = "이것은 첫 번째 문장입니다.\n그리고 이것은 두 번째 문장이고요.\n마지막 세 번째 문장이랍니다."
-    f.write(text)
+# path = r"c:\pytest_basic"
+# with open(path+"\\myfile2.txt", "w", encoding='ANSI') as f:
+#     text = "이것은 첫 번째 문장입니다.\n그리고 이것은 두 번째 문장이고요.\n마지막 세 번째 문장이랍니다."
+#     f.write(text)
 
-f = open(path+"\\myfile2.txt", "r")
-text = f.read()
-print(text)
-f.close()
+# f = open(path+"\\myfile2.txt", "r")
+# text = f.read()
+# print(text)
+# f.close()
 
 
 
-a, b ,c = list(map(int, input().split()))
-b_list = bin(b)[2:]
-count = 0
-two_list = []
-for num in b_list:
-    count += 1
-    if num == '1':
-        temp = 2**(len(b_list) - count)
-        two_list.append(temp)
-b_list = list(b_list)
-b_list.reverse()
-two_list.reverse()
-modulo_list = []
-cnt = 0
-def modulo(a, b, c, cnt):
-    if cnt == 0:
-        temp = a % c
-        modulo_list.append(temp)
-    else:
-        temp = modulo_list[cnt - 1]
-        modulo_list.append((temp**2)%c)
-    cnt += 1
-    if cnt == b:
-        return modulo_list
-    modulo(a, b, c, cnt)
-modulo(a, b, c, cnt)
-temp = 1
-result = 0
-for num, modulo in zip(b_list, modulo_list):
-    if num == '1':
-        temp *= modulo
-        result = temp
-print(result%c)
+# a, b ,c = list(map(int, input().split()))
+# b_list = bin(b)[2:]
+# count = 0
+# two_list = []
+# for num in b_list:
+#     count += 1
+#     if num == '1':
+#         temp = 2**(len(b_list) - count)
+#         two_list.append(temp)
+# b_list = list(b_list)
+# b_list.reverse()
+# two_list.reverse()
+# modulo_list = []
+# cnt = 0
+# def modulo(a, b, c, cnt):
+#     if cnt == 0:
+#         temp = a % c
+#         modulo_list.append(temp)
+#     else:
+#         temp = modulo_list[cnt - 1]
+#         modulo_list.append((temp**2)%c)
+#     cnt += 1
+#     if cnt == b:
+#         return modulo_list
+#     modulo(a, b, c, cnt)
+# modulo(a, b, c, cnt)
+# temp = 1
+# result = 0
+# for num, modulo in zip(b_list, modulo_list):
+#     if num == '1':
+#         temp *= modulo
+#         result = temp
+# print(result%c)
+
+import find_words.find_keywords
+# find_words.
+help(find_words.find_keywords)
+
+path =  "c:\\pytest\\"
+# find_words_from_file.find(path+'금융규제운영규정.txt', path+'220915_연습문제6.csv', ['금융','법률'])
+p = find_words.find_keywords.find_kewords_in_txt(path+'금융규제운영규정.txt', ['규제'])
+print(p)

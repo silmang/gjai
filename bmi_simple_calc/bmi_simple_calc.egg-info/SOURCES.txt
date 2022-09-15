@@ -1,6 +1,0 @@
-setup.py
-bmi_simple_calc/calc.py
-bmi_simple_calc.egg-info/PKG-INFO
-bmi_simple_calc.egg-info/SOURCES.txt
-bmi_simple_calc.egg-info/dependency_links.txt
-bmi_simple_calc.egg-info/top_level.txt
