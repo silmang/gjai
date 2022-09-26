@@ -131,11 +131,19 @@
 #         result = temp
 # print(result%c)
 
-import find_words.find_keywords
-# find_words.
-help(find_words.find_keywords)
+# import find_words.find_keywords
+# # find_words.
+# help(find_words.find_keywords)
 
-path =  "c:\\pytest\\"
-# find_words_from_file.find(path+'금융규제운영규정.txt', path+'220915_연습문제6.csv', ['금융','법률'])
-p = find_words.find_keywords.find_kewords_in_txt(path+'금융규제운영규정.txt', ['규제'])
-print(p)
+# path =  "c:\\pytest\\"
+# # find_words_from_file.find(path+'금융규제운영규정.txt', path+'220915_연습문제6.csv', ['금융','법률'])
+# p = find_words.find_keywords.find_kewords_in_txt(path+'금융규제운영규정.txt', ['규제'])
+# print(p)
+import pickle
+from sklearn.utils import all_estimators
+all = all_estimators(type_filter='regressor')
+for i in all:
+    print(i)
+
+# with open('regressor.pickle', 'wb') as f:
+#     pickle.dump(all, f, pickle.HIGHEST_PROTOCOL)
