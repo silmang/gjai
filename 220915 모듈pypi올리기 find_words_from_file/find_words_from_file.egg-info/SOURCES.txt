@@ -1,0 +1,8 @@
+setup.py
+find_words_from_file/__init__.py
+find_words_from_file/find_words_from_file.py
+find_words_from_file.egg-info/PKG-INFO
+find_words_from_file.egg-info/SOURCES.txt
+find_words_from_file.egg-info/dependency_links.txt
+find_words_from_file.egg-info/requires.txt
+find_words_from_file.egg-info/top_level.txt
