@@ -240,44 +240,88 @@
 
 
 
-def check_x(x,y,n):
-    for i in range(9):
-        if n==box[x][i]:
-            return False
-    return True
+# def check_x(x,y,n):
+#     for i in range(9):
+#         if n==box[x][i]:
+#             return False
+#     return True
 
-def check_y(x,y,n):
-    for i in range(9):
-        if n==box[i][y]:
-            return False
-    return True
+# def check_y(x,y,n):
+#     for i in range(9):
+#         if n==box[i][y]:
+#             return False
+#     return True
 
-def check_sector(x,y,n):
-    x=x//3
-    y=y//3
-    for i in range(x*3,x*3+3):
-        for j in range(y*3,y*3+3):
-            if n==box[i][j]:
-                return False
-    return True
+# def check_sector(x,y,n):
+#     x=x//3
+#     y=y//3
+#     for i in range(x*3,x*3+3):
+#         for j in range(y*3,y*3+3):
+#             if n==box[i][j]:
+#                 return False
+#     return True
 
-def track(n):
-    if n==len(blank):
-        for _ in range(9):
-            print(*box[_])
-        exit(0)
-    x,y=blank[n][0],blank[n][1]
-    for i in range(1,10):
-        if check_x(x,y,i) and check_y(x,y,i) and check_sector(x,y,i):
-            box[x][y] = i
-            track(n + 1)
-            box[x][y] = 0
+# def track(n):
+#     if n==len(blank):
+#         for _ in range(9):
+#             print(*box[_])
+#         exit(0)
+#     x,y=blank[n][0],blank[n][1]
+#     for i in range(1,10):
+#         if check_x(x,y,i) and check_y(x,y,i) and check_sector(x,y,i):
+#             box[x][y] = i
+#             track(n + 1)
+#             box[x][y] = 0
 
-box=[]
-blank=[]
-for i in range(9):
-    box.append(list(map(int, input().split())))
-    for j in range(9):
-        if box[i][j]==0:
-            blank.append([i,j])
-track(0)
+# box=[]
+# blank=[]
+# for i in range(9):
+#     box.append(list(map(int, input().split())))
+#     for j in range(9):
+#         if box[i][j]==0:
+#             blank.append([i,j])
+# track(0)
+
+
+
+# import itertools
+
+# num = list(input()) # 숫자 입력받기
+# arr = list(itertools.permutations(num, len(num))) # 파이썬 라이브러리를 활용해 순열 구하기
+# arr.sort(reverse=True) # 오름차순 정렬
+
+# result = [] # 문자열을 숫자열로 합쳐서 저장할 배열 생성
+# for a in arr: # arr에서 값을 가져오기
+#   result.append("".join(a)) # 튜플을 문자열로 합침
+
+# idx = result.index("".join(num)) # 숫자가 있는 인덱스 번호를 찾기
+# print(result[idx-1] if idx != 0 else 0) # 제일 큰 수가 아니라면 현재보다 바로 큰 값을 출력하고 0을 출력한다.
+
+import itertools
+num_list = list(map(int, input().split()))
+p=list(map(''.join, map(str,list(itertools.permutations(num_list,4)))))
+hour=[]
+for i in p:
+    h=int(i[1]+i[4])
+    if h<=23:
+        hour.append(h)
+for j in sorted(set(hour),reverse=True):
+    temp_list = num_list.copy()
+    if len(str(j))==1:
+        temp_list.pop(temp_list.index(0))
+        temp_list.pop(temp_list.index(j))
+    else:
+        temp_list.pop(temp_list.index(int(str(j)[0])))
+        temp_list.pop(temp_list.index(int(str(j)[1])))
+    tmp_min = []
+    if temp_list[0]*10+temp_list[1] <= 60:
+        tmp_min.append(temp_list[0]*10+temp_list[1])
+    if temp_list[0]+temp_list[1]*10 <= 60:
+        tmp_min.append(temp_list[0]+temp_list[1]*10)
+    if len(tmp_min)==0:
+        continue
+    min = max(tmp_min)
+    print(f"{j:02d}:{min:02d}")
+    break
+else:
+    print(-1)
