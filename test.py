@@ -297,31 +297,41 @@
 # idx = result.index("".join(num)) # 숫자가 있는 인덱스 번호를 찾기
 # print(result[idx-1] if idx != 0 else 0) # 제일 큰 수가 아니라면 현재보다 바로 큰 값을 출력하고 0을 출력한다.
 
-import itertools
-num_list = list(map(int, input().split()))
-p=list(map(''.join, map(str,list(itertools.permutations(num_list,4)))))
-hour=[]
-for i in p:
-    h=int(i[1]+i[4])
-    if h<=23:
-        hour.append(h)
-for j in sorted(set(hour),reverse=True):
-    temp_list = num_list.copy()
-    if len(str(j))==1:
-        temp_list.pop(temp_list.index(0))
-        temp_list.pop(temp_list.index(j))
-    else:
-        temp_list.pop(temp_list.index(int(str(j)[0])))
-        temp_list.pop(temp_list.index(int(str(j)[1])))
-    tmp_min = []
-    if temp_list[0]*10+temp_list[1] <= 60:
-        tmp_min.append(temp_list[0]*10+temp_list[1])
-    if temp_list[0]+temp_list[1]*10 <= 60:
-        tmp_min.append(temp_list[0]+temp_list[1]*10)
-    if len(tmp_min)==0:
-        continue
-    min = max(tmp_min)
-    print(f"{j:02d}:{min:02d}")
-    break
-else:
-    print(-1)
+# import itertools
+# num_list = list(map(int, input().split()))
+# p=list(map(''.join, map(str,list(itertools.permutations(num_list,4)))))
+# hour=[]
+# for i in p:
+#     h=int(i[1]+i[4])
+#     if h<=23:
+#         hour.append(h)
+# for j in sorted(set(hour),reverse=True):
+#     temp_list = num_list.copy()
+#     if len(str(j))==1:
+#         temp_list.pop(temp_list.index(0))
+#         temp_list.pop(temp_list.index(j))
+#     else:
+#         temp_list.pop(temp_list.index(int(str(j)[0])))
+#         temp_list.pop(temp_list.index(int(str(j)[1])))
+#     tmp_min = []
+#     if temp_list[0]*10+temp_list[1] <= 60:
+#         tmp_min.append(temp_list[0]*10+temp_list[1])
+#     if temp_list[0]+temp_list[1]*10 <= 60:
+#         tmp_min.append(temp_list[0]+temp_list[1]*10)
+#     if len(tmp_min)==0:
+#         continue
+#     min = max(tmp_min)
+#     print(f"{j:02d}:{min:02d}")
+#     break
+# else:
+#     print(-1)
+
+x=10
+class S():
+    def __init__(self):
+        self.a=x
+    def ca(self):
+        max=1
+        return self.a
+a=S()
+print(a.ca())
